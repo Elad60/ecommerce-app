@@ -1,1 +1,18 @@
-<p>products works!</p>
+<div class="container">
+    @if (products().length > 0) {
+        <div class="products-section">
+        @for (product of products(); track product.id) {
+            <div class="product">
+                <app-card>
+                    <img [src]="product.imageUrl"/>
+                    <h3> {{ product.name }}</h3>
+                    <p> {{ product.price | currency}} </p>
+                    <p> {{!product.inStock ? 'Out of Stock' : ''}}</p>
+                </app-card>
+            </div>
+        }
+        </div>
+    } @else {
+        <app-spinner></app-spinner>
+    }
+</div>
