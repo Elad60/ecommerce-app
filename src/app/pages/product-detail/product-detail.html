@@ -1,1 +1,49 @@
-<p>product-detail works!</p>
+@if(loading()) {
+    <app-spinner></app-spinner>
+} @else {
+    @if(error()) {
+        <div class="error-container">
+            <h2>{{ error() }}</h2>
+            <button (click)="goBack()" class="btn-back">← Back to Products</button>
+        </div>
+    } @else if(product()) {
+        <div class="product-detail-container">
+            <button (click)="goBack()" class="btn-back-top">← Back to Products</button>
+
+            <div class="product-detail-content">
+                <div class="product-image-section">
+                    <img [src]="product()!.imageUrl" [alt]="product()!.name" class="product-image" />
+                </div>
+
+                <div class="product-info-section">
+                    <h1 class="product-title">{{ product()!.name }}</h1>
+
+                    <p class="product-category">
+                        <span class="label">Category:</span>
+                        <span class="value">{{ product()!.category }}</span>
+                    </p>
+
+                    <p class="product-price">{{ product()!.price | currency }}</p>
+
+                    <div class="product-stock">
+                        @if (product()!.inStock) {
+                            <span class="in-stock">✓ In Stock</span>
+                        } @else {
+                            <span class="out-of-stock">✗ Out of Stock</span>
+                        }
+                    </div>
+
+                    <p class="product-description">{{ product()!.description }}</p>
+
+                    <div class="product-actions">
+                        <button
+                            [disabled]="!product()!.inStock"
+                            class="btn-add-cart">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

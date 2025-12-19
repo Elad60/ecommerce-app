@@ -10,6 +10,9 @@ export class ProductService {
   private products = signal<Product[]>([]);
   private apiUrl = 'https://api.example.com/products';
 
+  constructor() {
+    this.loadProducts();
+  }
   loadProducts(): void {
     this.products.set(MOCK_PRODUCTS);
   }
@@ -17,11 +20,12 @@ export class ProductService {
     return this.products.asReadonly();
   }
 
-  getProductById(id: number): Signal<Product | undefined> {
-    return computed(() => {
+  getProductById(id: number): Product | null{
       const product = this.products().find(p => p.id === id);
+      if(!product) {
+        return null;
+      }
       return product;
-    })
   }
   getProductByCategory(category: Category): Signal<Product[]> {
     return computed(() => {
