@@ -1,7 +1,20 @@
 <div class="container">
-    @if (products().length > 0) {
+    <div class="filter">
+        <span>Search for a product</span>
+        <input [(ngModel)]="searchTerm">
+
+        <label for="category">Category:</label>
+        <select [(ngModel)]="selectedCategory" id="category">
+            @for (category of categories; track $index) {
+                <option [value]="category">{{ category }}</option>
+            }
+        </select>
+        <button (click)="clearFilters()"> Clear Filters </button>
+    </div>
+    @if (filteredProducts().length > 0) {
+        <p class="results-count">Showing {{ filteredProducts().length }} of {{ products().length }} products</p>
         <div class="products-section">
-        @for (product of products(); track product.id) {
+        @for (product of filteredProducts(); track product.id) {
             <app-product-card
                 [product]="product"
                 (productClick)="onProductClick($event)">

@@ -86,9 +86,10 @@ Each step must follow this exact template:
 7. **Product Service with HttpClient** - Signal-based service with mock data and computed filters
 8. **Product List Component** - Display products in responsive grid with @for/@if control flow
 9. **Product Card Component** - Reusable component with input/output signals for product display
+10. **Product Detail Page** - Route parameters with input() signals, effect() for reactivity, and router navigation
 
 #### 🚧 Current Step:
-**Step 10: Product Detail Page**
+**Step 11: Product Search & Filter**
 
 #### 📋 Remaining Steps:
 11. Product Search & Filter

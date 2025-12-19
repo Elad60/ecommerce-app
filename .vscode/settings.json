@@ -1,0 +1,49 @@
+{
+  // Enable semantic highlighting for functions, variables, classes, etc.
+  "editor.semanticHighlighting.enabled": true,
+
+  // TypeScript settings
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "relative",
+
+  // Editor settings for better code visibility
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      "function": "#DCDCAA",
+      "method": "#DCDCAA",
+      "variable": "#9CDCFE",
+      "parameter": "#9CDCFE",
+      "property": "#9CDCFE",
+      "class": "#4EC9B0",
+      "interface": "#4EC9B0",
+      "type": "#4EC9B0",
+      "namespace": "#4EC9B0"
+    }
+  },
+
+  // Format on save
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  // Angular language service
+  "angular.enable-strict-mode-prompt": false,
+
+  // Prettier settings
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
