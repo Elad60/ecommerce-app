@@ -5,16 +5,22 @@
 
         <label for="category">Category:</label>
         <select [(ngModel)]="selectedCategory" id="category">
-            @for (category of categories; track $index) {
+            @for (category of categories; track category) {
                 <option [value]="category">{{ category }}</option>
+            }
+        </select>
+        <label for="sort">Sort by:</label>
+        <select [(ngModel)]="sortBy" id="sort">
+            @for (sortOption of sortOptions; track sortOption) {
+                <option [value]="sortOption.value"> {{ sortOption.label }} </option>
             }
         </select>
         <button (click)="clearFilters()"> Clear Filters </button>
     </div>
-    @if (filteredProducts().length > 0) {
-        <p class="results-count">Showing {{ filteredProducts().length }} of {{ products().length }} products</p>
+    @if (displayedProducts().length > 0) {
+        <p class="results-count">Showing {{ displayedProducts().length }} of {{ products().length }} products</p>
         <div class="products-section">
-        @for (product of filteredProducts(); track product.id) {
+        @for (product of displayedProducts(); track product.id) {
             <app-product-card
                 [product]="product"
                 (productClick)="onProductClick($event)">

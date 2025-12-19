@@ -9,3 +9,4 @@ export interface Product {
     inStock: boolean
     rating?: number
 }
+export type SortOption = 'default' | 'price-low' | 'price-high' | 'name-asc' | 'name-desc'

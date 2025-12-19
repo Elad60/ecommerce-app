@@ -87,13 +87,13 @@ Each step must follow this exact template:
 8. **Product List Component** - Display products in responsive grid with @for/@if control flow
 9. **Product Card Component** - Reusable component with input/output signals for product display
 10. **Product Detail Page** - Route parameters with input() signals, effect() for reactivity, and router navigation
+11. **Product Search & Filter** - Search by name/description, category filter, computed() for reactive filtering
+12. **Product Sorting** - Multiple sort options with signal state, combined filter+sort computed logic
 
 #### 🚧 Current Step:
-**Step 11: Product Search & Filter**
+**Step 13: Route Configuration Enhancement**
 
 #### 📋 Remaining Steps:
-11. Product Search & Filter
-12. Product Sorting
 13. Route Configuration Enhancement
 14. Navigation Component Enhancement
 15. Lazy Loading Routes

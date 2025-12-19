@@ -10,16 +10,33 @@
   // Editor settings for better code visibility
   "editor.semanticTokenColorCustomizations": {
     "enabled": true,
-    "rules": {
-      "function": "#DCDCAA",
-      "method": "#DCDCAA",
-      "variable": "#9CDCFE",
-      "parameter": "#9CDCFE",
-      "property": "#9CDCFE",
-      "class": "#4EC9B0",
-      "interface": "#4EC9B0",
-      "type": "#4EC9B0",
-      "namespace": "#4EC9B0"
+    "[Default Dark Modern]": {
+      "enabled": true,
+      "rules": {
+        "function": "#DCDCAA",
+        "method": "#DCDCAA",
+        "variable": "#9CDCFE",
+        "parameter": "#9CDCFE",
+        "property": "#9CDCFE",
+        "class": "#4EC9B0",
+        "interface": "#4EC9B0",
+        "type": "#4EC9B0",
+        "namespace": "#4EC9B0"
+      }
+    },
+    "[Default Light Modern]": {
+      "enabled": true,
+      "rules": {
+        "function": "#795E26",
+        "method": "#795E26",
+        "variable": "#001080",
+        "parameter": "#001080",
+        "property": "#001080",
+        "class": "#267F99",
+        "interface": "#267F99",
+        "type": "#267F99",
+        "namespace": "#267F99"
+      }
     }
   },
 
