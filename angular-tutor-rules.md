@@ -90,12 +90,12 @@ Each step must follow this exact template:
 11. **Product Search & Filter** - Search by name/description, category filter, computed() for reactive filtering
 12. **Product Sorting** - Multiple sort options with signal state, combined filter+sort computed logic
 13. **Lazy Loading Routes** - loadComponent with dynamic imports for code splitting and performance
+14. **Route Guards (Functional)** - CanActivateFn with inject() for cart route protection
 
 #### 🚧 Current Step:
-**Step 17: Route Guards (Functional)**
+**Step 18: Cart Service with Signals**
 
 #### 📋 Remaining Steps:
-17. Route Guards (Functional)
 18. Cart Service with Signals
 19. Add to Cart Functionality
 20. Cart Component
