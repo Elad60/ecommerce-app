@@ -15,6 +15,9 @@ export class Cart {
   cartItems = this.cartService.getCartItems();
   itemCount = this.cartService.itemCount;
   subTotal = this.cartService.subTotal;
+  tax = this.cartService.tax;
+  shipping = this.cartService.shipping;
+  grandTotal = this.cartService.grandTotal;
 
   clearCart(): void {
     this.cartService.clearCart();

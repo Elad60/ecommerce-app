@@ -95,12 +95,12 @@ Each step must follow this exact template:
 16. **Add to Cart Functionality** - Connect product detail to cart service with user feedback
 17. **Cart Component** - Display cart items with @let, empty state, and cart summary
 18. **Cart Item Component** - Reusable component with input/output signals, quantity controls, and event delegation pattern
+19. **Cart Calculations** - Tax, shipping, and grand total with computed signals and constants
 
 #### 🚧 Current Step:
-**Step 22: Cart Calculations**
+**Step 23: Local Storage Sync**
 
 #### 📋 Remaining Steps:
-22. Cart Calculations
 23. Local Storage Sync
 24. Checkout Form Setup
 25. Built-in Validators

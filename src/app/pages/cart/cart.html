@@ -10,9 +10,29 @@
      ></app-cart-item>
   }
   <div class="cart-summary">
-    <p>Subtotal: {{ subTotal() | currency }}</p>
-    <button (click)="clearCart()">Clear Cart</button>
-    <button disabled>Checkout</button>
+    <div class="summary-breakdown">
+      <div class="summary-row">
+        <span>Subtotal:</span>
+        <span>{{ subTotal() | currency }}</span>
+      </div>
+      <div class="summary-row">
+        <span>Tax (10%):</span>
+        <span>{{ tax() | currency }}</span>
+      </div>
+      <div class="summary-row">
+        <span>Shipping:</span>
+        <span>{{ shipping() === 0 ? 'FREE' : (shipping() | currency) }}</span>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-row summary-total">
+        <span>Grand Total:</span>
+        <span>{{ grandTotal() | currency }}</span>
+      </div>
+    </div>
+    <div class="summary-actions">
+      <button (click)="clearCart()">Clear Cart</button>
+      <button disabled>Checkout</button>
+    </div>
   </div>
 </div>
 } @else {

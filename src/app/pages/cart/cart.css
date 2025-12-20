@@ -24,42 +24,83 @@
   box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
 }
 
-.cart-summary p {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 0 0 2rem 0;
-  text-align: center;
+.summary-breakdown {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
 }
 
-.cart-summary button {
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+}
+
+.summary-row span:first-child {
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.summary-row span:last-child {
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.summary-divider {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 1rem 0;
+}
+
+.summary-total {
+  font-size: 1.4rem;
+  padding-top: 1rem;
+}
+
+.summary-total span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.summary-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.summary-actions button {
   padding: 1rem 2.5rem;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  margin-right: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  flex: 1;
 }
 
-.cart-summary button:first-of-type {
+.summary-actions button:first-of-type {
   background-color: #f59e0b;
   color: white;
 }
 
-.cart-summary button:first-of-type:hover {
+.summary-actions button:first-of-type:hover {
   background-color: #d97706;
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.cart-summary button:last-of-type {
+.summary-actions button:last-of-type {
   background-color: #10b981;
   color: white;
 }
 
-.cart-summary button:disabled {
+.summary-actions button:disabled {
   background-color: #9ca3af;
   cursor: not-allowed;
   opacity: 0.7;
@@ -119,13 +160,23 @@
     padding: 1.5rem;
   }
 
-  .cart-summary p {
-    font-size: 1.5rem;
+  .summary-breakdown {
+    padding: 1rem;
   }
 
-  .cart-summary button {
-    width: 100%;
-    margin: 0.5rem 0;
+  .summary-row {
+    font-size: 1rem;
+  }
+
+  .summary-total span {
+    font-size: 1.3rem;
+  }
+
+  .summary-actions {
+    flex-direction: column;
+  }
+
+  .summary-actions button {
     padding: 0.875rem 1.5rem;
   }
 
