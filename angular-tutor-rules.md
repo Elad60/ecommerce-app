@@ -92,13 +92,13 @@ Each step must follow this exact template:
 13. **Lazy Loading Routes** - loadComponent with dynamic imports for code splitting and performance
 14. **Route Guards (Functional)** - CanActivateFn with inject() for cart route protection
 15. **Cart Service with Signals** - Global cart state with update(), computed totals, and CRUD operations
+16. **Add to Cart Functionality** - Connect product detail to cart service with user feedback
+17. **Cart Component** - Display cart items with @let, empty state, and cart summary
 
 #### 🚧 Current Step:
-**Step 19: Add to Cart Functionality**
+**Step 21: Cart Item Component**
 
 #### 📋 Remaining Steps:
-19. Add to Cart Functionality
-20. Cart Component
 21. Cart Item Component
 22. Cart Calculations
 23. Local Storage Sync

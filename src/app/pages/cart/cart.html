@@ -1,1 +1,34 @@
-<p>cart works!</p>
+@if (itemCount() > 0) {
+<div class="cart-container">
+  <h1>Shopping Cart ({{ itemCount() }} items)</h1>
+
+  @for (cartItem of cartItems(); track cartItem.product.id) {
+  <div class="cart-item">
+    @let product = cartItem.product;
+    <div class="cart-item-image">
+      <img [src]="product.imageUrl" [alt]="product.name" />
+    </div>
+    <div class="cart-item-details">
+      <h3 class="cart-item-name">{{ product.name }}</h3>
+      <p class="cart-item-description">{{ product.description }}</p>
+      <p class="cart-item-category">Category: {{ product.category }}</p>
+    </div>
+    <div class="cart-item-pricing">
+      <p class="cart-item-price">{{ product.price | currency }}</p>
+      <p class="cart-item-quantity">Qty: {{ cartItem.quantity }}</p>
+      <p class="cart-item-total">{{ product.price * cartItem.quantity | currency }}</p>
+    </div>
+  </div>
+  }
+  <div class="cart-summary">
+    <p>Subtotal: {{ subTotal() | currency }}</p>
+    <button (click)="clearCart()">Clear Cart</button>
+    <button disabled>Checkout</button>
+  </div>
+</div>
+} @else {
+<div class="empty-cart">
+  <h2>Your cart is empty</h2>
+  <a routerLink="/products">Continue Shopping</a>
+</div>
+}
