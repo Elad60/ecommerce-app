@@ -38,6 +38,7 @@
                     <div class="product-actions">
                         <button
                             [disabled]="!product()!.inStock"
+                            (click)="addToCart()"
                             class="btn-add-cart">
                             Add to Cart
                         </button>

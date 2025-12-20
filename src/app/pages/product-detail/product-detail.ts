@@ -4,6 +4,7 @@ import { Product } from '../../models';
 import { ProductService } from '../../services/product.service';
 import { Spinner } from '../../shared/spinner/spinner';
 import { CurrencyPipe } from '../../shared/pipes/currency-pipe';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -18,6 +19,7 @@ export class ProductDetail {
   router = inject(Router);
   loading = signal<boolean>(true);
   error = signal<string | null>(null);
+  private cartService = inject(CartService);
 
   constructor() {
     effect(() => {
@@ -38,5 +40,11 @@ export class ProductDetail {
   }
   goBack(): void {
     this.router.navigate(['/products']);
+  }
+  addToCart(): void {
+    if(this.product()) {
+      this.cartService.addToCart(this.product()!, 1);
+      alert('Product added to cart!');
+    }
   }
 }
