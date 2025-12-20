@@ -1,15 +1,23 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
-import { Products } from './pages/products/products';
-import { Cart } from './pages/cart/cart';
-import { Auth } from './pages/auth/auth';
-import { ProductDetail } from './pages/product-detail/product-detail';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full'},
-    { path: 'home', component: Home},
-    { path: 'products', component: Products},
-    { path: 'cart', component: Cart},
-    { path: 'auth', component: Auth},
-    { path: 'products/:id', component: ProductDetail}
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', loadComponent: () => import('./pages/home/home').then((m) => m.Home) },
+  {
+    path: 'products',
+    loadComponent: () => import('./pages/products/products').then((m) => m.Products),
+  },
+  {
+    path: 'cart',
+    loadComponent: () => import('./pages/cart/cart').then((m) => m.Cart),
+  },
+  {
+    path: 'auth',
+    loadComponent: () => import('./pages/auth/auth').then((m) => m.Auth),
+  },
+  {
+    path: 'products/:id',
+    loadComponent: () =>
+      import('./pages/product-detail/product-detail').then((m) => m.ProductDetail),
+  },
 ];

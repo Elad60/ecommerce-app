@@ -89,15 +89,12 @@ Each step must follow this exact template:
 10. **Product Detail Page** - Route parameters with input() signals, effect() for reactivity, and router navigation
 11. **Product Search & Filter** - Search by name/description, category filter, computed() for reactive filtering
 12. **Product Sorting** - Multiple sort options with signal state, combined filter+sort computed logic
+13. **Lazy Loading Routes** - loadComponent with dynamic imports for code splitting and performance
 
 #### 🚧 Current Step:
-**Step 13: Route Configuration Enhancement**
+**Step 17: Route Guards (Functional)**
 
 #### 📋 Remaining Steps:
-13. Route Configuration Enhancement
-14. Navigation Component Enhancement
-15. Lazy Loading Routes
-16. Route Parameters & Inputs
 17. Route Guards (Functional)
 18. Cart Service with Signals
 19. Add to Cart Functionality
