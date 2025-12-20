@@ -1,14 +1,14 @@
 import { computed, Injectable, Signal, signal } from '@angular/core';
-import { CartItem } from '../models/cart.model';
+import { CartType } from '../models/cart.model';
 import { Product } from '../models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cartItems = signal<CartItem[]>([]);
+  private cartItems = signal<CartType[]>([]);
 
-  getCartItems(): Signal<CartItem[]> {
+  getCartItems(): Signal<CartType[]> {
     return this.cartItems.asReadonly();
   }
   itemCount = computed(() => this.cartItems().reduce((sum, item) => sum + item.quantity, 0));

@@ -94,12 +94,12 @@ Each step must follow this exact template:
 15. **Cart Service with Signals** - Global cart state with update(), computed totals, and CRUD operations
 16. **Add to Cart Functionality** - Connect product detail to cart service with user feedback
 17. **Cart Component** - Display cart items with @let, empty state, and cart summary
+18. **Cart Item Component** - Reusable component with input/output signals, quantity controls, and event delegation pattern
 
 #### 🚧 Current Step:
-**Step 21: Cart Item Component**
+**Step 22: Cart Calculations**
 
 #### 📋 Remaining Steps:
-21. Cart Item Component
 22. Cart Calculations
 23. Local Storage Sync
 24. Checkout Form Setup

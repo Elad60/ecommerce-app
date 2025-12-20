@@ -1,0 +1,19 @@
+<div class="cart-item">
+    @let product = cartItem().product;
+    <div class="cart-item-image">
+      <img [src]="product.imageUrl" [alt]="product.name" />
+    </div>
+    <div class="cart-item-details">
+      <h3 class="cart-item-name">{{ product.name }}</h3>
+      <p class="cart-item-description">{{ product.description }}</p>
+      <p class="cart-item-category">Category: {{ product.category }}</p>
+    </div>
+    <div class="cart-item-pricing">
+      <p class="cart-item-price">{{ product.price | currency }}</p>
+      <p class="cart-item-quantity">Qty: {{ cartItem().quantity }}</p>
+      <button (click)="increaseQty()" class="cart-add"> + </button>
+      <button (click)="decreaseQty()" class="cart-decrease"> - </button>
+      <button (click)="removeCartItem()" class="cart-remove"> Delete </button>
+      <p class="cart-item-total">{{ product.price * cartItem().quantity | currency }}</p>
+    </div>
+  </div>

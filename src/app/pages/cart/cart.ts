@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CurrencyPipe } from '../../shared/pipes/currency-pipe';
 import { RouterLink } from "@angular/router";
+import { CartItem } from '../../shared/cart-item/cart-item';
 
 @Component({
   selector: 'app-cart',
-  imports: [CurrencyPipe, RouterLink],
+  imports: [CurrencyPipe, RouterLink, CartItem],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
@@ -15,8 +16,14 @@ export class Cart {
   itemCount = this.cartService.itemCount;
   subTotal = this.cartService.subTotal;
 
-
   clearCart(): void {
     this.cartService.clearCart();
+  }
+
+  onChangeQuantity(productId: number, quantity: number): void {
+    this.cartService.updateQuantity(productId, quantity);
+  }
+  onRemove(productId: number): void {
+    this.cartService.removeFromCart(productId)
   }
 }
