@@ -97,12 +97,12 @@ Each step must follow this exact template:
 18. **Cart Item Component** - Reusable component with input/output signals, quantity controls, and event delegation pattern
 19. **Cart Calculations** - Tax, shipping, and grand total with computed signals and constants
 20. **Local Storage Sync** - Persist cart with effect(), JSON serialization, and error handling
+21. **Checkout Form Setup** - Reactive forms with FormGroup, nested form groups, and template bindings
 
 #### 🚧 Current Step:
-**Step 24: Checkout Form Setup**
+**Step 25: Built-in Validators**
 
 #### 📋 Remaining Steps:
-24. Checkout Form Setup
 25. Built-in Validators
 26. Custom Sync Validators
 27. Custom Async Validators

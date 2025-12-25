@@ -1,0 +1,66 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <h2>Shipping Information</h2>
+    <div formGroupName="shipping">
+        <div>
+            <label for="firstName">First Name</label>
+            <input id="firstName" formControlName="firstName" type="text" required>
+        </div>
+
+        <div>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" formControlName="lastName" type="text" required>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" type="email" required>
+        </div>
+
+        <div>
+            <label for="address">Address</label>
+            <input id="address" formControlName="address" type="text" required>
+        </div>
+
+        <div>
+            <label for="city">City</label>
+            <input id="city" formControlName="city" type="text" required>
+        </div>
+
+        <div>
+            <label for="state">State</label>
+            <input id="state" formControlName="state" type="text" required>
+        </div>
+
+        <div>
+            <label for="zipCode">Zip Code</label>
+            <input id="zipCode" formControlName="zipCode" type="text" required>
+        </div>
+    </div>
+
+    <h2>Payment Information</h2>
+    <div formGroupName="payment">
+        <div>
+            <label for="cardNumber">Card Number</label>
+            <input id="cardNumber" formControlName="cardNumber" type="text" maxlength="16" required>
+        </div>
+
+        <div>
+            <label for="cardName">Name on Card</label>
+            <input id="cardName" formControlName="cardName" type="text" required>
+        </div>
+
+        <div>
+            <label for="expiryDate">Expiry Date (MM/YY)</label>
+            <input id="expiryDate" formControlName="expiryDate" type="text" placeholder="MM/YY" maxlength="5" required>
+        </div>
+
+        <div>
+            <label for="cvv">CVV</label>
+            <input id="cvv" formControlName="cvv" type="text" maxlength="3" required>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="!checkoutForm.valid">Place Order</button>
+    </div>
+</form>

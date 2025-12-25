@@ -1,0 +1,138 @@
+/* Checkout Container */
+form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 2rem 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #667eea;
+}
+
+h2:first-of-type {
+  margin-top: 0;
+}
+
+/* Form Groups */
+div[formGroupName] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+div[formGroupName] > div {
+  display: flex;
+  flex-direction: column;
+}
+
+div[formGroupName] > div:nth-child(3),
+div[formGroupName] > div:nth-child(4) {
+  grid-column: span 1;
+}
+
+/* Make email and address full width */
+div[formGroupName="shipping"] > div:nth-child(3),
+div[formGroupName="shipping"] > div:nth-child(4) {
+  grid-column: span 2;
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Inputs */
+input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input:hover {
+  border-color: #d1d5db;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Submit Button */
+form > div:last-child {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button[type="submit"] {
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+button[type="submit"]:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  div[formGroupName] {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  div[formGroupName="shipping"] > div:nth-child(3),
+  div[formGroupName="shipping"] > div:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.875rem 2rem;
+  }
+}
