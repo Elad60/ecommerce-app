@@ -99,13 +99,13 @@ Each step must follow this exact template:
 20. **Local Storage Sync** - Persist cart with effect(), JSON serialization, and error handling
 21. **Checkout Form Setup** - Reactive forms with FormGroup, nested form groups, and template bindings
 22. **Built-in Validators** - Required, email, pattern, minLength/maxLength validators with error messages
+23. **Custom Sync Validators** - passwordStrength, passwordMatch, and creditCard validators with Luhn algorithm
+24. **Custom Async Validators** - usernameAvailable and emailAvailable validators with RxJS observables and delay
 
 #### 🚧 Current Step:
-**Step 26: Custom Sync Validators**
+**Step 28: Form State with Signals**
 
 #### 📋 Remaining Steps:
-26. Custom Sync Validators
-27. Custom Async Validators
 28. Form State with Signals
 29. Auth Service with Signals
 30. Login/Register Components
