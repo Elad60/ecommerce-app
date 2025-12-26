@@ -1,3 +1,4 @@
+@if(!isFormPending()) {
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <h2>Shipping Information</h2>
   <div formGroupName="shipping">
@@ -19,9 +20,9 @@
       <label for="email">Email</label>
       <input id="email" formControlName="email" type="email" required />
       @if(hasError('shipping.email', 'required')) {
-        <span class="error-message">Email is required</span>
+      <span class="error-message">Email is required</span>
       } @else if(hasError('shipping.email', 'email')){
-         <span class="error-message">Email is not valid</span>
+      <span class="error-message">Email is not valid</span>
       }
     </div>
 
@@ -72,7 +73,7 @@
       } @else if(hasError('payment.cardNumber', 'maxlength')) {
       <span class="error-message">Card Number cannot exceed 19 digits</span>
       } @else if(hasError('payment.cardNumber', 'invalidCreditCard')) {
-        <span class="error-message">Invalid credit card number</span>
+      <span class="error-message">Invalid credit card number</span>
       }
     </div>
 
@@ -112,6 +113,9 @@
   </div>
 
   <div>
-    <button type="submit" [disabled]="!checkoutForm.valid">Place Order</button>
+    <button type="submit" [disabled]="!isFormValid()">Place Order</button>
   </div>
 </form>
+} @else {
+<app-spinner></app-spinner>
+}

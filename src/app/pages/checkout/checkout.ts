@@ -1,16 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { creditCardValidator } from '../../shared/validators';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { Spinner } from '../../shared/spinner/spinner';
+
 const initialValue = '';
 @Component({
   selector: 'app-checkout',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,Spinner],
   templateUrl: './checkout.html',
   styleUrl: './checkout.css',
 })
@@ -30,19 +32,40 @@ export class Checkout {
         Validators.required,
         Validators.minLength(13),
         Validators.maxLength(19),
-        creditCardValidator()
+        creditCardValidator(),
       ]),
       cardName: new FormControl(initialValue, Validators.required),
-      expiryDate: new FormControl(initialValue, [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]),
+      expiryDate: new FormControl(initialValue, [
+        Validators.required,
+        Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/),
+      ]),
       cvv: new FormControl(initialValue, [Validators.required, Validators.pattern(/^\d{3,4}$/)]),
     }),
   });
+
+  formValue = toSignal(this.checkoutForm.valueChanges, {
+    initialValue: this.checkoutForm.value
+  })
+  formStatus = toSignal(this.checkoutForm.statusChanges, {
+    initialValue: this.checkoutForm.status
+  })
+
+  isFormValid = computed(() => {
+    return this.formStatus() === 'VALID'
+  })
+  isFormPending = computed(() => {
+    return this.formStatus() === 'PENDING'
+  })
+  isFormDirty = computed(() => {
+    this.formValue()
+    return this.checkoutForm.dirty;
+  })
   getControl(path: string) {
     return this.checkoutForm.get(path);
   }
   hasError(path: string, error: string): boolean {
     const control = this.getControl(path);
-    return !!(control?.hasError(error) && control?.touched)
+    return !!(control?.hasError(error) && control?.touched);
   }
   onSubmit(): void {
     if (this.checkoutForm.valid) {
@@ -50,3 +73,4 @@ export class Checkout {
     }
   }
 }
+
