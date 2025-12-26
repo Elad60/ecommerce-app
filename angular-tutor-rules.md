@@ -101,12 +101,12 @@ Each step must follow this exact template:
 22. **Built-in Validators** - Required, email, pattern, minLength/maxLength validators with error messages
 23. **Custom Sync Validators** - passwordStrength, passwordMatch, and creditCard validators with Luhn algorithm
 24. **Custom Async Validators** - usernameAvailable and emailAvailable validators with RxJS observables and delay
+25. **Form State with Signals** - toSignal() for valueChanges/statusChanges, computed signals for validation state
 
 #### 🚧 Current Step:
-**Step 28: Form State with Signals**
+**Step 29: Auth Service with Signals**
 
 #### 📋 Remaining Steps:
-28. Form State with Signals
 29. Auth Service with Signals
 30. Login/Register Components
 31. Functional Auth Guard
