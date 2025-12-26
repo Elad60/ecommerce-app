@@ -1,0 +1,66 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h2>Create Account</h2>
+
+  @if(isFormPending()) {
+    <div class="pending-message">
+      <span>⏳ Checking availability...</span>
+    </div>
+  }
+
+  <div class="register-form">
+    <div class="form-field">
+      <label for="userName">Username</label>
+      <input id="userName" formControlName="userName" type="text" placeholder="Choose a username" />
+      @if(hasError('userName', 'required')){
+        <span class="error-message">Username is required</span>
+      } @else if(hasError('userName', 'usernameTaken')){
+        <span class="error-message">Username is already taken</span>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" placeholder="your@email.com" />
+      @if(hasError('email', 'required')){
+        <span class="error-message">Email is required</span>
+      } @else if(hasError('email', 'emailTaken')){
+        <span class="error-message">Email is already registered</span>
+      }
+    </div>
+
+    <div formGroupName="passwordsGroup">
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" placeholder="Create a password" />
+        @if(hasError('passwordsGroup.password', 'required')){
+          <span class="error-message">Password is required</span>
+        } @else if(hasError('passwordsGroup.password', 'minLength')){
+          <span class="error-message">Password must be at least 8 characters</span>
+        } @else if(hasError('passwordsGroup.password', 'uppercase')){
+          <span class="error-message">Password needs an uppercase letter</span>
+        } @else if(hasError('passwordsGroup.password', 'lowercase')){
+          <span class="error-message">Password needs a lowercase letter</span>
+        } @else if(hasError('passwordsGroup.password', 'number')){
+          <span class="error-message">Password needs a number</span>
+        }
+      </div>
+
+      <div class="form-field">
+        <label for="confirm-password">Confirm Password</label>
+        <input id="confirm-password" formControlName="confirmPassword" type="password" placeholder="Confirm your password" />
+        @if(hasError('passwordsGroup.confirmPassword', 'required')){
+          <span class="error-message">Please confirm your password</span>
+        }
+      </div>
+
+      @if(hasError('passwordsGroup', 'passwordMismatch')){
+        <span class="error-message group-error">Passwords do not match</span>
+      }
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" [disabled]="!isFormValid()">Create Account</button>
+      <p class="form-footer">Already have an account? <a [routerLink]="'/auth/login'">Sign in</a></p>
+    </div>
+  </div>
+</form>

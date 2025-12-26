@@ -1,0 +1,26 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2>Welcome Back</h2>
+
+  <div class="login-form">
+    <div class="form-field">
+      <label for="userName">Username</label>
+      <input id="userName" formControlName="userName" type="text" placeholder="Enter your username" />
+      @if(hasError('userName', 'required')){
+        <span class="error-message">Username is required</span>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" placeholder="Enter your password" />
+      @if(hasError('password', 'required')){
+        <span class="error-message">Password is required</span>
+      }
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" [disabled]="!isFormValid()">Sign In</button>
+      <p class="form-footer">Don't have an account? <a [routerLink]="'/auth/register'">Create one</a></p>
+    </div>
+  </div>
+</form>

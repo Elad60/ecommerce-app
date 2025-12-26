@@ -5,20 +5,21 @@ import { User } from '../models';
   providedIn: 'root',
 })
 export class AuthService {
+  private readonly AUTH_TOKEN_KEY = 'AUTH_TOKEN_KEY';
   currentUser = signal<User | null>(null);
 
   isAuthenticated = computed(() => this.currentUser() !== null);
   isAdmin = computed(() => this.currentUser()?.role === 'admin');
 
   constructor() {
-    const token = localStorage.getItem('auth_token');
+    const token = localStorage.getItem('AUTH_TOKEN_KEY');
     if (token) {
       try {
         const userJson = atob(token);
         const user: User = JSON.parse(userJson);
         this.currentUser.set(user);
       } catch (error) {
-        localStorage.removeItem('auth_token');
+        localStorage.removeItem('AUTH_TOKEN_KEY');
         console.error(error);
       }
     }
@@ -26,9 +27,9 @@ export class AuthService {
       const user = this.currentUser();
       if(user) {
       const token = btoa(JSON.stringify(user));
-      localStorage.setItem('auth_token', token);
+      localStorage.setItem('AUTH_TOKEN_KEY', token);
       } else {
-        localStorage.removeItem('auth_token')
+        localStorage.removeItem('AUTH_TOKEN_KEY')
       }
     });
   }

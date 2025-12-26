@@ -102,13 +102,13 @@ Each step must follow this exact template:
 23. **Custom Sync Validators** - passwordStrength, passwordMatch, and creditCard validators with Luhn algorithm
 24. **Custom Async Validators** - usernameAvailable and emailAvailable validators with RxJS observables and delay
 25. **Form State with Signals** - toSignal() for valueChanges/statusChanges, computed signals for validation state
+26. **Auth Service with Signals** - Signal-based auth state, login/logout/register methods, localStorage persistence with effect()
+27. **Login/Register Components** - Reactive forms with all validators, async validation UI, AuthService integration, styled auth pages
 
 #### 🚧 Current Step:
-**Step 29: Auth Service with Signals**
+**Step 31: Functional Auth Guard**
 
 #### 📋 Remaining Steps:
-29. Auth Service with Signals
-30. Login/Register Components
 31. Functional Auth Guard
 32. HTTP Interceptor (Functional)
 33. User Profile Component
