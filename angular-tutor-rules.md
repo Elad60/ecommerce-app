@@ -98,12 +98,12 @@ Each step must follow this exact template:
 19. **Cart Calculations** - Tax, shipping, and grand total with computed signals and constants
 20. **Local Storage Sync** - Persist cart with effect(), JSON serialization, and error handling
 21. **Checkout Form Setup** - Reactive forms with FormGroup, nested form groups, and template bindings
+22. **Built-in Validators** - Required, email, pattern, minLength/maxLength validators with error messages
 
 #### 🚧 Current Step:
-**Step 25: Built-in Validators**
+**Step 26: Custom Sync Validators**
 
 #### 📋 Remaining Steps:
-25. Built-in Validators
 26. Custom Sync Validators
 27. Custom Async Validators
 28. Form State with Signals

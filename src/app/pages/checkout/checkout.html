@@ -1,66 +1,115 @@
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-    <h2>Shipping Information</h2>
-    <div formGroupName="shipping">
-        <div>
-            <label for="firstName">First Name</label>
-            <input id="firstName" formControlName="firstName" type="text" required>
-        </div>
-
-        <div>
-            <label for="lastName">Last Name</label>
-            <input id="lastName" formControlName="lastName" type="text" required>
-        </div>
-
-        <div>
-            <label for="email">Email</label>
-            <input id="email" formControlName="email" type="email" required>
-        </div>
-
-        <div>
-            <label for="address">Address</label>
-            <input id="address" formControlName="address" type="text" required>
-        </div>
-
-        <div>
-            <label for="city">City</label>
-            <input id="city" formControlName="city" type="text" required>
-        </div>
-
-        <div>
-            <label for="state">State</label>
-            <input id="state" formControlName="state" type="text" required>
-        </div>
-
-        <div>
-            <label for="zipCode">Zip Code</label>
-            <input id="zipCode" formControlName="zipCode" type="text" required>
-        </div>
+  <h2>Shipping Information</h2>
+  <div formGroupName="shipping">
+    <div>
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName" type="text" required />
+      @if(hasError('shipping.firstName', 'required')) {
+      <span class="error-message">First Name is required</span>
+      }
     </div>
-
-    <h2>Payment Information</h2>
-    <div formGroupName="payment">
-        <div>
-            <label for="cardNumber">Card Number</label>
-            <input id="cardNumber" formControlName="cardNumber" type="text" maxlength="16" required>
-        </div>
-
-        <div>
-            <label for="cardName">Name on Card</label>
-            <input id="cardName" formControlName="cardName" type="text" required>
-        </div>
-
-        <div>
-            <label for="expiryDate">Expiry Date (MM/YY)</label>
-            <input id="expiryDate" formControlName="expiryDate" type="text" placeholder="MM/YY" maxlength="5" required>
-        </div>
-
-        <div>
-            <label for="cvv">CVV</label>
-            <input id="cvv" formControlName="cvv" type="text" maxlength="3" required>
-        </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" formControlName="lastName" type="text" required />
+      @if(hasError('shipping.lastName', 'required')) {
+      <span class="error-message">Last Name is required</span>
+      }
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" required />
+      @if(hasError('shipping.email', 'required')) {
+        <span class="error-message">Email is required</span>
+      } @else if(hasError('shipping.email', 'email')){
+         <span class="error-message">Email is not valid</span>
+      }
     </div>
 
     <div>
-        <button type="submit" [disabled]="!checkoutForm.valid">Place Order</button>
+      <label for="address">Address</label>
+      <input id="address" formControlName="address" type="text" />
+      @if(hasError('shipping.address', 'required')) {
+      <span class="error-message">Address is required</span>
+      }
     </div>
+
+    <div>
+      <label for="city">City</label>
+      <input id="city" formControlName="city" type="text" />
+      @if(hasError('shipping.city', 'required')) {
+      <span class="error-message">City is required</span>
+      }
+    </div>
+
+    <div>
+      <label for="state">State</label>
+      <input id="state" formControlName="state" type="text" />
+      @if(hasError('shipping.state', 'required')) {
+      <span class="error-message">State is required</span>
+      }
+    </div>
+
+    <div>
+      <label for="zipCode">Zip Code</label>
+      <input id="zipCode" formControlName="zipCode" type="text" maxlength="5" />
+      @if(hasError('shipping.zipCode', 'required')) {
+      <span class="error-message">Zip Code is required</span>
+      } @else if(hasError('shipping.zipCode', 'pattern')) {
+      <span class="error-message">Zip Code must be 5 digits</span>
+      }
+    </div>
+  </div>
+
+  <h2>Payment Information</h2>
+  <div formGroupName="payment">
+    <div>
+      <label for="cardNumber">Card Number</label>
+      <input id="cardNumber" formControlName="cardNumber" type="text" maxlength="19" />
+      @if(hasError('payment.cardNumber', 'required')) {
+      <span class="error-message">Card Number is required</span>
+      } @else if(hasError('payment.cardNumber', 'minlength')) {
+      <span class="error-message">Card Number must be at least 13 digits</span>
+      } @else if(hasError('payment.cardNumber', 'maxlength')) {
+      <span class="error-message">Card Number cannot exceed 19 digits</span>
+      }
+    </div>
+
+    <div>
+      <label for="cardName">Name on Card</label>
+      <input id="cardName" formControlName="cardName" type="text" />
+      @if(hasError('payment.cardName', 'required')) {
+      <span class="error-message">Name on Card is required</span>
+      }
+    </div>
+
+    <div>
+      <label for="expiryDate">Expiry Date (MM/YY)</label>
+      <input
+        id="expiryDate"
+        formControlName="expiryDate"
+        type="text"
+        placeholder="MM/YY"
+        maxlength="5"
+      />
+      @if(hasError('payment.expiryDate', 'required')) {
+      <span class="error-message">Expiry Date is required</span>
+      } @else if(hasError('payment.expiryDate', 'pattern')) {
+      <span class="error-message">Format must be MM/YY</span>
+      }
+    </div>
+
+    <div>
+      <label for="cvv">CVV</label>
+      <input id="cvv" formControlName="cvv" type="text" maxlength="4" />
+      @if(hasError('payment.cvv', 'required')) {
+      <span class="error-message">CVV is required</span>
+      } @else if(hasError('payment.cvv', 'pattern')) {
+      <span class="error-message">CVV must be 3-4 digits</span>
+      }
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="!checkoutForm.valid">Place Order</button>
+  </div>
 </form>
