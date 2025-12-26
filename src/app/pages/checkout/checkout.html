@@ -71,6 +71,8 @@
       <span class="error-message">Card Number must be at least 13 digits</span>
       } @else if(hasError('payment.cardNumber', 'maxlength')) {
       <span class="error-message">Card Number cannot exceed 19 digits</span>
+      } @else if(hasError('payment.cardNumber', 'invalidCreditCard')) {
+        <span class="error-message">Invalid credit card number</span>
       }
     </div>
 

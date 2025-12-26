@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { creditCardValidator } from '../../shared/validators';
 const initialValue = '';
 @Component({
   selector: 'app-checkout',
@@ -29,6 +30,7 @@ export class Checkout {
         Validators.required,
         Validators.minLength(13),
         Validators.maxLength(19),
+        creditCardValidator()
       ]),
       cardName: new FormControl(initialValue, Validators.required),
       expiryDate: new FormControl(initialValue, [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]),
