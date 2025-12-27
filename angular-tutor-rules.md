@@ -104,12 +104,12 @@ Each step must follow this exact template:
 25. **Form State with Signals** - toSignal() for valueChanges/statusChanges, computed signals for validation state
 26. **Auth Service with Signals** - Signal-based auth state, login/logout/register methods, localStorage persistence with effect()
 27. **Login/Register Components** - Reactive forms with all validators, async validation UI, AuthService integration, styled auth pages
+28. **Functional Auth Guard** - CanActivateFn with inject(), UrlTree redirects, route protection for cart/checkout, auth state checking
 
 #### 🚧 Current Step:
-**Step 31: Functional Auth Guard**
+**Step 32: HTTP Interceptor (Functional)**
 
 #### 📋 Remaining Steps:
-31. Functional Auth Guard
 32. HTTP Interceptor (Functional)
 33. User Profile Component
 34. Admin Routes & Lazy Loading
