@@ -12,14 +12,14 @@ export class AuthService {
   isAdmin = computed(() => this.currentUser()?.role === 'admin');
 
   constructor() {
-    const token = localStorage.getItem('AUTH_TOKEN_KEY');
+    const token = localStorage.getItem(this.AUTH_TOKEN_KEY);
     if (token) {
       try {
         const userJson = atob(token);
         const user: User = JSON.parse(userJson);
         this.currentUser.set(user);
       } catch (error) {
-        localStorage.removeItem('AUTH_TOKEN_KEY');
+        localStorage.removeItem(this.AUTH_TOKEN_KEY);
         console.error(error);
       }
     }
@@ -27,9 +27,9 @@ export class AuthService {
       const user = this.currentUser();
       if(user) {
       const token = btoa(JSON.stringify(user));
-      localStorage.setItem('AUTH_TOKEN_KEY', token);
+      localStorage.setItem(this.AUTH_TOKEN_KEY, token);
       } else {
-        localStorage.removeItem('AUTH_TOKEN_KEY')
+        localStorage.removeItem(this.AUTH_TOKEN_KEY)
       }
     });
   }

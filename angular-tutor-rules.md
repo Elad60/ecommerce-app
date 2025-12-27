@@ -105,13 +105,14 @@ Each step must follow this exact template:
 26. **Auth Service with Signals** - Signal-based auth state, login/logout/register methods, localStorage persistence with effect()
 27. **Login/Register Components** - Reactive forms with all validators, async validation UI, AuthService integration, styled auth pages
 28. **Functional Auth Guard** - CanActivateFn with inject(), UrlTree redirects, route protection for cart/checkout, auth state checking
+29. **ProductService HTTP Integration** - Convert ProductService to use HttpClient.get(), firstValueFrom for async/await pattern, fallback to mock data, JSON file serving from public/assets
+30. **HTTP Interceptor (Functional)** - HttpInterceptorFn with inject(), automatic Bearer token attachment, request cloning, global authentication header management
 
 #### 🚧 Current Step:
-**Step 32: HTTP Interceptor (Functional)**
+**Step 31: User Profile Component**
 
 #### 📋 Remaining Steps:
-32. HTTP Interceptor (Functional)
-33. User Profile Component
+31. User Profile Component
 34. Admin Routes & Lazy Loading
 35. Admin Product CRUD
 36. Role-Based Authorization
