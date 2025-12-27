@@ -25,11 +25,11 @@ export class AuthService {
     }
     effect(() => {
       const user = this.currentUser();
-      if(user) {
-      const token = btoa(JSON.stringify(user));
-      localStorage.setItem(this.AUTH_TOKEN_KEY, token);
+      if (user) {
+        const token = btoa(JSON.stringify(user));
+        localStorage.setItem(this.AUTH_TOKEN_KEY, token);
       } else {
-        localStorage.removeItem(this.AUTH_TOKEN_KEY)
+        localStorage.removeItem(this.AUTH_TOKEN_KEY);
       }
     });
   }
@@ -53,5 +53,16 @@ export class AuthService {
       role: 'user',
     };
     this.currentUser.set(newUser);
+  }
+  updateUser(userName: string, email: string): void {
+    const user = this.currentUser();
+
+    if(user) {
+      this.currentUser.set({
+        ...user,
+        username: userName,
+        email
+      })
+    }
   }
 }

@@ -14,22 +14,26 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'profile',
+    loadComponent: () => import('./pages/profile/profile').then((m) => m.Profile),
+    canActivate: [authGuard],
+  },
+  {
     path: 'auth',
     loadComponent: () => import('./pages/auth/auth').then((m) => m.Auth),
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
         path: 'login',
-        loadComponent: () =>
-          import('./pages/auth/login/login').then((m) => m.Login),
+        loadComponent: () => import('./pages/auth/login/login').then((m) => m.Login),
       },
       {
         path: 'register',
-        loadComponent: () =>
-          import('./pages/auth/register/register').then((m) => m.Register),
+        loadComponent: () => import('./pages/auth/register/register').then((m) => m.Register),
       },
     ],
   },
+
   {
     path: 'products/:id',
     loadComponent: () =>
@@ -38,6 +42,6 @@ export const routes: Routes = [
   {
     path: 'checkout',
     loadComponent: () => import('./pages/checkout/checkout').then((m) => m.Checkout),
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
 ];
