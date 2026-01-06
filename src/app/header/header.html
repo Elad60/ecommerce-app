@@ -9,6 +9,9 @@
       <a routerLink="/cart" routerLinkActive="active">Cart</a>
       <a routerLink="/auth" routerLinkActive="active">Login</a>
       <a routerLink="/profile" routerLinkActive="active">Profile</a>
+      @if (authService.isAdmin()){
+        <a routerLink="/admin" routerLinkActive="active">Admin</a>
+      }
     </nav>
   </div>
 </header>

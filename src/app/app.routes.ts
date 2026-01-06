@@ -33,7 +33,6 @@ export const routes: Routes = [
       },
     ],
   },
-
   {
     path: 'products/:id',
     loadComponent: () =>
@@ -44,4 +43,9 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/checkout/checkout').then((m) => m.Checkout),
     canActivate: [authGuard],
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin.routes').then(m => m.ADMIN_ROUTES),
+    
+  }
 ];

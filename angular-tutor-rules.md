@@ -107,16 +107,15 @@ Each step must follow this exact template:
 28. **Functional Auth Guard** - CanActivateFn with inject(), UrlTree redirects, route protection for cart/checkout, auth state checking
 29. **ProductService HTTP Integration** - Convert ProductService to use HttpClient.get(), firstValueFrom for async/await pattern, fallback to mock data, JSON file serving from public/assets
 30. **HTTP Interceptor (Functional)** - HttpInterceptorFn with inject(), automatic Bearer token attachment, request cloning, global authentication header management
+31. **Admin Routes & Lazy Loading** - loadChildren for admin routes, loadComponent for granular lazy loading, admin dashboard/products/users components, conditional admin nav link with @if
 
 #### 🚧 Current Step:
-**Step 31: User Profile Component**
+**Step 32: Admin Product CRUD**
 
 #### 📋 Remaining Steps:
-31. User Profile Component
-34. Admin Routes & Lazy Loading
-35. Admin Product CRUD
-36. Role-Based Authorization
-37. Admin Dashboard
-38. Change Detection & OnPush
-39. HTTP Error Interceptor
-40. Build & Production Optimization
+32. Admin Product CRUD
+33. Role-Based Authorization
+34. Admin Dashboard
+35. Change Detection & OnPush
+36. HTTP Error Interceptor
+37. Build & Production Optimization
