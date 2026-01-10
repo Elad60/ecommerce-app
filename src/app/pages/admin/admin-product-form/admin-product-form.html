@@ -1,0 +1,30 @@
+<form [formGroup]="adminProductsForm" (ngSubmit)="onSubmit()">
+  <h2>{{ title() }}</h2>
+  <div class="admin-form">
+    <div class="form-field">
+      @for(field of formFields; track field.name){
+      <label [for]="field.name"> {{ field.label }}</label>
+      @if (field.type === 'textarea') {
+      <textarea [id]="field.name" [formControlName]="field.name"></textarea>
+      } @else if (field.type === 'checkbox') {
+      <input
+        [id]="field.name"
+        type="checkbox"
+        [formControlName]="field.name"
+      />
+      } @else {
+      <input
+        [id]="field.name"
+        [type]="field.type"
+        [formControlName]="field.name"
+        [step]="field.step"
+        [min]="field.min"
+        [max]="field.max"
+      />
+      } }
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn-primary">{{ title() }}</button>
+    </div>
+  </div>
+</form>

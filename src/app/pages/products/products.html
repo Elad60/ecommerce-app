@@ -18,7 +18,7 @@
         <button (click)="clearFilters()"> Clear Filters </button>
     </div>
     @if (displayedProducts().length > 0) {
-        <p class="results-count">Showing {{ displayedProducts().length }} of {{ products().length }} products</p>
+        <p class="results-count">Showing {{ displayedProducts().length }} of {{ products.length }} products</p>
         <div class="products-section">
         @for (product of displayedProducts(); track product.id) {
             <app-product-card

@@ -23,8 +23,8 @@ export class ProductService {
       console.error('Failed to load products:', error);
     }
   }
-  getProducts(): Signal<readonly Product[]> {
-    return this.products.asReadonly();
+  getProducts(): Product[] {
+    return this.products();
   }
 
   getProductById(id: number): Product | null {
@@ -39,5 +39,17 @@ export class ProductService {
       const categoryProducts = this.products().filter((p) => p.category === category);
       return categoryProducts;
     });
+  }
+  createProduct(product: Product): void {
+    const newId =
+      this.products().length > 0 ? Math.max(...this.products().map((p) => p.id)) + 1 : 1;
+    const newProduct = { ...product, id: newId };
+    this.products.update((products) => [...products, newProduct]);
+  }
+  updateProduct(product: Product, productId: number): void {
+    this.products.update((products) => products.map(p => p.id === productId ? product : p) )
+  }
+  deleteProduct(productId: number): void {
+    this.products.update((products) => products.filter(p => p.id !== productId))
   }
 }

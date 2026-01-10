@@ -1,3 +1,6 @@
+/* Import Angular Material Theme */
+@import './material-theme.scss';
+
 /* Global Reset & Base Styles */
 * {
   margin: 0;

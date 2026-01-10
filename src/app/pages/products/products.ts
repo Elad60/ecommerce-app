@@ -1,4 +1,4 @@
-import { Component, computed, inject, model, signal } from '@angular/core';
+import { Component, computed, inject, input, model, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Spinner } from '../../shared/spinner/spinner';
@@ -31,7 +31,7 @@ export class Products {
   ];
 
   displayedProducts = computed(() => {
-    let result: Product[] = [...this.products()];
+    let result: Product[] = [...this.products];
     const search = this.searchTerm()?.toLocaleLowerCase() || '';
     result = result.filter(
       (p) =>
