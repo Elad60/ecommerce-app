@@ -72,4 +72,8 @@ export class AdminProductForm {
       }
       this.router.navigate(['/admin/products'])
   }
+
+  onCancel(): void {
+    this.router.navigate(['/admin/products']);
+  }
 }

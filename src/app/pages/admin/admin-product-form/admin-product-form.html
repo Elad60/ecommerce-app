@@ -1,30 +1,108 @@
-<form [formGroup]="adminProductsForm" (ngSubmit)="onSubmit()">
-  <h2>{{ title() }}</h2>
-  <div class="admin-form">
-    <div class="form-field">
-      @for(field of formFields; track field.name){
-      <label [for]="field.name"> {{ field.label }}</label>
-      @if (field.type === 'textarea') {
-      <textarea [id]="field.name" [formControlName]="field.name"></textarea>
-      } @else if (field.type === 'checkbox') {
-      <input
-        [id]="field.name"
-        type="checkbox"
-        [formControlName]="field.name"
-      />
-      } @else {
-      <input
-        [id]="field.name"
-        [type]="field.type"
-        [formControlName]="field.name"
-        [step]="field.step"
-        [min]="field.min"
-        [max]="field.max"
-      />
-      } }
-    </div>
-    <div class="form-actions">
-        <button type="submit" class="btn-primary">{{ title() }}</button>
-    </div>
+<div class="form-container">
+  <div class="form-header">
+    <h1>{{ title() }}</h1>
+    <p class="subtitle">Fill in the product details below</p>
   </div>
-</form>
+
+  <form [formGroup]="adminProductsForm" (ngSubmit)="onSubmit()" class="admin-form">
+    <!-- Basic Information Section -->
+    <div class="form-section">
+      <h2 class="section-title">Basic Information</h2>
+      <div class="form-grid">
+        <div class="form-group full-width">
+          <label for="name">Product Name *</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="Enter product name"
+          />
+        </div>
+
+        <div class="form-group full-width">
+          <label for="description">Description *</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            placeholder="Enter product description"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <input
+            id="category"
+            type="text"
+            formControlName="category"
+            placeholder="e.g., Electronics, Clothing"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="imageUrl">Image URL *</label>
+          <input
+            id="imageUrl"
+            type="text"
+            formControlName="imageUrl"
+            placeholder="https://example.com/image.jpg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing & Availability Section -->
+    <div class="form-section">
+      <h2 class="section-title">Pricing & Availability</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="price">Price *</label>
+          <div class="input-with-icon">
+            <span class="icon">$</span>
+            <input
+              id="price"
+              type="number"
+              formControlName="price"
+              placeholder="0.00"
+              step="0.01"
+              min="0.01"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rating">Rating (0-5)</label>
+          <input
+            id="rating"
+            type="number"
+            formControlName="rating"
+            placeholder="0.0"
+            step="0.1"
+            min="0"
+            max="5"
+          />
+        </div>
+
+        <div class="form-group checkbox-wrapper">
+          <label class="checkbox-label">
+            <input
+              id="inStock"
+              type="checkbox"
+              formControlName="inStock"
+            />
+            <span>Product In Stock</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="onCancel()">
+        Cancel
+      </button>
+      <button type="submit" class="btn-primary" [disabled]="adminProductsForm.invalid">
+        {{ isEditMode() ? 'Update Product' : 'Create Product' }}
+      </button>
+    </div>
+  </form>
+</div>
